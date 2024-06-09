@@ -9,9 +9,15 @@ jobs:
     continue-on-error: true
     steps:
     - uses: actions/checkout@v4
-    - name: List Files
+    - name: List Files 1
       run: |
         pwd
         ls -l
         echo "done"
         efr
+    - name: List Files 2
+      run: |
+        pwd
+        ls -l
+        echo "done"
+    
