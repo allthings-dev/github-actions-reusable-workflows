@@ -9,7 +9,7 @@ on:
 jobs:
   reuse1job:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ donotfail }}
+    continue-on-error: ${{ inputs.donotfail }}
     steps:
     - uses: actions/checkout@v4
     - name: List Files 1
