@@ -1,0 +1,17 @@
+name: Reusable workflow example
+
+on:
+  workflow_call:
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Greet 1
+      id: greet1
+      run: |
+        echo "Hi 1"
+    - name: Greet 2
+      id: greet2
+      run: |
+        echo "Hi 2"
