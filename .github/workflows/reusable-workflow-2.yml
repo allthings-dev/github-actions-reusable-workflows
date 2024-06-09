@@ -18,7 +18,7 @@ jobs:
       id: greet2
       run: |
         echo "Hi 2"
-    - name: Greet 2
+    - name: Greet 3
       id: greet3
       run: |
         echo ${{ inputs.someinput }}
