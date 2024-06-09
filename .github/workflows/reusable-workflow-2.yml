@@ -2,6 +2,9 @@ name: Reusable workflow example
 
 on:
   workflow_call:
+    inputs:
+      someinput:
+        type: string
 
 jobs:
   reuse2job:
@@ -15,3 +18,7 @@ jobs:
       id: greet2
       run: |
         echo "Hi 2"
+    - name: Greet 2
+      id: greet3
+      run: |
+        echo ${{ inputs.someinput }}
