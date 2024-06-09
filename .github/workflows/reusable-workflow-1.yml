@@ -2,11 +2,14 @@ name: Reusable workflow example
 
 on:
   workflow_call:
+    inputs:
+      donotfail:
+        type: boolean
 
 jobs:
   reuse1job:
     runs-on: ubuntu-latest
-    continue-on-error: true
+    continue-on-error: ${{ donotfail }}
     steps:
     - uses: actions/checkout@v4
     - name: List Files 1
