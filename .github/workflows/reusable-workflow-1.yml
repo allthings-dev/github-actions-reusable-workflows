@@ -6,7 +6,6 @@ on:
 jobs:
   reuse1job:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
     - uses: actions/checkout@v4
     - name: List Files 1
@@ -16,6 +15,7 @@ jobs:
         echo "done"
         efr
     - name: List Files 2
+      if: always()
       run: |
         pwd
         ls -l
