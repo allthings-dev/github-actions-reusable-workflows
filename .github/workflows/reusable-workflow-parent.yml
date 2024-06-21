@@ -1,4 +1,4 @@
-: []name: Call a reusable workflows.
+name: Call a reusable workflows.
 
 on:
   workflow_call:
