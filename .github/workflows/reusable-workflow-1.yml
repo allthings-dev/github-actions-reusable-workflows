@@ -5,11 +5,18 @@ on:
     inputs:
       donotfail:
         type: boolean
+        default: true
+    outputs:
+      lastgreet:
+        description: "The last output string"
+        value: ${{ jobs.reuse1job.outputs.firstgreet }}
 
 jobs:
   reuse1job:
     runs-on: ubuntu-latest
     continue-on-error: ${{ inputs.donotfail }}
+    outputs:
+      output1: ${{ steps.step1.outputs.firstgreet }}
     steps:
     - uses: actions/checkout@v4
     - name: List Files 1
@@ -17,6 +24,8 @@ jobs:
         pwd
         ls -l
         echo "done"
+    - id: step1
+      run: echo "firstgreet=hello" >> $GITHUB_OUTPUT
 
     - name: List Files 2
       if: always()
