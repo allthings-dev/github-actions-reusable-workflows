@@ -9,7 +9,7 @@ on:
     outputs:
       lastgreet:
         description: "The last output string"
-        value: ${{ jobs.reuse1job.outputs.firstgreet }}
+        value: ${{ jobs.reuse1job.outputs.output1 }}
 
 jobs:
   reuse1job:
