@@ -17,7 +17,7 @@ jobs:
         pwd
         ls -l
         echo "done"
-        efr
+
     - name: List Files 2
       if: always()
       run: |
