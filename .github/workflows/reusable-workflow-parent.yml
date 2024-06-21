@@ -10,7 +10,7 @@ jobs:
   reuse2:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-2.yml@main
     needs: [reuse1]
-    if: ${{ needs.reuse1.outputs.lastgreet == 'hello' }}
+    if: ${{ needs.reuse1.outputs.lastgreet != 'hello' }}
   
   reuse3:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
