@@ -17,7 +17,7 @@ jobs:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
     needs: [ reuse1, reuse2 ]
     if: |
-      always() && (needs.reuse1.result == 'success' && needs.reuse2.result == 'success')
+      always() && (needs.reuse1.result == 'success' || needs.reuse2.result == 'success')
 
   reuse4:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
