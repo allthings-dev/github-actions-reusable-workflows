@@ -4,12 +4,16 @@ on:
   workflow_call:
 
 jobs:
-  reuse1:
+  reuse0:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
 
+  reuse1:
+    uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
+    needs: [reuse0]
+    
   reuse2:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-2.yml@main
-    needs: [reuse1]
+    needs: [reuse0]
     #if: ${{ needs.reuse1.outputs.lastgreet != 'hello' }}
     if: false
   
