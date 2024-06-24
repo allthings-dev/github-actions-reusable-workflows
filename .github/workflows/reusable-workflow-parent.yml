@@ -20,17 +20,16 @@ jobs:
   reuse3:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
     needs: [ reuse1, reuse2 ]
-    if: |
-      always() && (needs.reuse1.result == 'success' || needs.reuse2.result == 'success')
+    if: ${{ !cancelled() && (needs.reuse1.result == 'success' || needs.reuse2.result == 'success') }}
       
 
   reuse4:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
     needs: [reuse3 ]
-    if: ${{ !cancelled() && (needs.reuse3.result == 'success' || needs.reuse3.result == 'success') }}
+    if: ${{ !cancelled() && needs.reuse3.result == 'success' }}
 
   reuse5:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
     needs: [reuse4]
-    if: ${{ !cancelled() && (needs.reuse4.result == 'success' || needs.reuse4.result == 'success') }}
+    if: ${{ !cancelled() && needs.reuse4.result == 'success' }}
     
