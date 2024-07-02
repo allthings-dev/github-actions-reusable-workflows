@@ -24,6 +24,11 @@ jobs:
         pwd
         ls -l
         echo "done"
+    - name: Fail on error
+      run: |
+        echo "donex"
+        cjchjrc
+        
     - id: step1
       run: echo "firstgreet=hello" >> $GITHUB_OUTPUT
 
