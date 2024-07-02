@@ -7,7 +7,7 @@ jobs:
   reuse0:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
     with:
-      donotfail: false
+      donotfail: true
 
   reusemid:
     runs-on: ubuntu-latest
