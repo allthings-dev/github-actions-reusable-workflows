@@ -7,7 +7,7 @@ on:
         type: boolean
         default: true
     outputs:
-      lastgreet:
+      fcdgatepassed:
         description: "The last output string"
         value: ${{ jobs.reuse1job.outputs.output1 }}
 
