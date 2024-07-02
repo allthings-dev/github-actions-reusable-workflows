@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: ${{ inputs.donotfail }} 
     outputs:
-      output1: ${{ steps.step1.outputs.firstgreet }}
+      output1: ${{ steps.step1.outputs.fcdgateresult == 'success' && 'yes1' || 'no1' }}
     steps:
     - uses: actions/checkout@v4
     - name: List Files 1
@@ -30,7 +30,7 @@ jobs:
         cjkrjc
         
     - id: step1
-      run: echo "firstgreet=hello" >> $GITHUB_OUTPUT
+      run: echo "fcdgateresult=success" >> $GITHUB_OUTPUT
 
     - name: List Files 2
       if: always()
