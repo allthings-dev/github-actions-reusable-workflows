@@ -12,6 +12,7 @@ jobs:
   reusemid:
     runs-on: ubuntu-latest
     needs: reuse0
+    if: ${{ !cancelled() }}
     steps:
       - run: | 
           echo " reuse0 status is " ${{ needs.reuse0.result }}
@@ -21,13 +22,13 @@ jobs:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
     needs: [reuse0]
     #if: ${{ needs.reuse0.outputs.lastgreet != 'hello' }}
-    if: ${{ needs.reuse0.result == 'success' }}
+    if: ${{ !cancelled() && needs.reuse0.result == 'success' }}
     
   reuse2:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-2.yml@main
     needs: [reuse0]
     #if: ${{ needs.reuse1.outputs.lastgreet != 'hello' }}
-    if: ${{ needs.reuse0.result == 'failure' }}
+    if: ${{ !cancelled() && needs.reuse0.result == 'failure' }}
   
   reuse3:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
