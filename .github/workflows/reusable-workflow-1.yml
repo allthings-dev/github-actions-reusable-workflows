@@ -27,7 +27,6 @@ jobs:
     - name: Fail on error
       run: |
         echo "donex"
-        cjkrjc
         
     - id: step1
       run: echo "fcdgateresult=success" >> $GITHUB_OUTPUT
