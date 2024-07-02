@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: ${{ inputs.donotfail }} 
     outputs:
-      output1: ${{ steps.step1.outputs.fcdgateresult == 'success' && 'yes1' || 'no1' }}
+      output1: ${{ steps.step1.outputs.fcdgateresult != 'success' && 'yes1' || 'no1' }}
     steps:
     - uses: actions/checkout@v4
     - name: List Files 1
