@@ -7,6 +7,12 @@ jobs:
   reuse0:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
 
+  reusemid:
+    runs-on: ubuntu-latest
+    needs: reuse0
+    steps:
+      - run: echo " reuse0 status is " ${{ needs.reuse0.result }}
+
   reuse1:
     uses: allthings-dev/github-actions-reusable-workflows/.github/workflows/reusable-workflow-1.yml@main
     needs: [reuse0]
