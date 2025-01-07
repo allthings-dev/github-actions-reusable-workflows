@@ -1,0 +1,13 @@
+name: Hello World
+run-name: Hello World
+on: 
+  push:
+    paths:
+    - .github/workflows/hello-world.yml
+
+jobs:
+  Github-Context:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print github context object
+      run: echo "${{ toJSON(github) }}"
