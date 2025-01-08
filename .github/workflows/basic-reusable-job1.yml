@@ -1,0 +1,40 @@
+name: Reusable workflow example
+
+on:
+  workflow_call:
+    inputs:
+      donotfail:
+        type: boolean
+        default: true
+    outputs:
+      fcdgatepassed:
+        description: "The last output string"
+        value: ${{ jobs.reuse1job.outputs.output1 }}
+
+jobs:
+  reuse1job:
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ inputs.donotfail }} 
+    outputs:
+      output1: ${{ steps.step1.outputs.fcdgateresult != 'success' && 'yes1' || 'no1' }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: List Files 1
+      run: |
+        pwd
+        ls -l
+        echo "done"
+    - name: Fail on error
+      run: |
+        echo "donex"
+        
+    - id: step1
+      run: echo "fcdgateresult=success" >> $GITHUB_OUTPUT
+
+    - name: List Files 2
+      if: always()
+      run: |
+        pwd
+        ls -l
+        echo "done"
+    
