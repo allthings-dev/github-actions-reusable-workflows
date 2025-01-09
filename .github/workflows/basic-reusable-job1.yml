@@ -1,0 +1,13 @@
+name: Reusable workflow example 1
+
+on:
+  workflow_call:
+
+jobs:
+  reuse-basic-job-1:
+    runs-on: ubuntu-latest
+    steps:
+        
+    - name: Greeting
+      run: echo "Hello Worlld"
+    
