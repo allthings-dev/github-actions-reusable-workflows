@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       dept:
-        type: boolean
+        type: string
         default: true
     secrets:
       city:
